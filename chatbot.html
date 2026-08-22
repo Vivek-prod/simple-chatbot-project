@@ -67,7 +67,7 @@
             }
 
             return (
-                <div className='chat-input-container'>
+                <>
                     <input 
                         placeholder="Send a message to Chatbot" 
                         
@@ -82,7 +82,7 @@
                         onClick={sendMessage}
                         className='send-button'
                     >Send</button>
-                </div>
+                </>
             );
         }
 
@@ -114,23 +114,35 @@
                         )
                     })}
                 </>
-            )
+            );
         }
 
         function App() {   
             const [chatMessages,setChatMessages]=React.useState([])
+
+            const chatMessagesRef=React.useRef(null)
+
+            React.useEffect(()=>{
+                const containerElen=chatMessagesRef.current;
+                if(containerElen){
+                    containerElen.scrollTop=containerElen.scrollHeight;
+                }
+            },[{chatMessages}]);
             
             return(
                 <div className='chatbot-container'>
-                    <ChatInput 
-                        chatMessages={chatMessages}
-                        setChatMessages={setChatMessages}/>  
-                    <div className='chat-message-container'>                
+
+                    <div className='chat-message-container' ref={chatMessagesRef}>                
                         <ChatMessages 
                             chatMessages={chatMessages}    
                         /> 
                     </div>
- 
+
+                    <div className='chat-input-container'>
+                        <ChatInput 
+                            chatMessages={chatMessages}
+                            setChatMessages={setChatMessages}/>  
+                    </div>
                 </div> 
             )
         }
