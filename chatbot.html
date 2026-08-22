@@ -26,8 +26,18 @@
                 setInputText(event.target.value);
             }
 
+            function handleKeyDown(event) {
+                if (event.key==='Enter'){
+                    sendMessage()
+                }
+            }
+
 
             function sendMessage() {
+                if(inputText.trim()===''){
+                    return
+                }
+
                 const newChatMessages=[
                     ...chatMessages,
                     {
@@ -59,7 +69,7 @@
                         size="30"
                         value={inputText}
                         onChange={saveInputText}
-                        
+                        onKeyDown={handleKeyDown}
 
                     />
                     <button 
