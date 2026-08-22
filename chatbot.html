@@ -12,6 +12,8 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js" defer></script>
     <script src="https://unpkg.com/supersimpledev/chatbot.js" defer></script>
+
+    <link rel="stylesheet" href="chatbot.css">
   </head>
 
   <body>
@@ -65,31 +67,34 @@
             }
 
             return (
-                <>
+                <div className='chat-input-container'>
                     <input 
                         placeholder="Send a message to Chatbot" 
-                        size="30"
+                        
                         value={inputText}
                         onChange={saveInputText}
                         onKeyDown={handleKeyDown}
+                        className='chat-input'
 
                     />
                     <button 
+
                         onClick={sendMessage}
+                        className='send-button'
                     >Send</button>
-                </>
+                </div>
             );
         }
 
         function ChatMessage({message,sender}) {
             return(
-                <div>
+                <div className={`chat-message-container-${sender}`}>
                     {sender==='robot' && (
-                        <img src="./images/robot.png" width="50" />
+                        <img src="./images/robot.png" className='chat-message-profile' />
                     )}
-                    {message} 
+                    <p className='chat-message-contents'>{message}</p> 
                     {sender==='user' && (
-                        <img src="./images/user.png" width="50" />
+                        <img src="./images/user.png" className='chat-message-profile'/>
                     )}
                 </div>
             );
@@ -116,14 +121,17 @@
             const [chatMessages,setChatMessages]=React.useState([])
             
             return(
-                <>
+                <div className='chatbot-container'>
                     <ChatInput 
                         chatMessages={chatMessages}
                         setChatMessages={setChatMessages}/>  
-                    <ChatMessages 
-                        chatMessages={chatMessages}    
-                    />  
-                </> 
+                    <div className='chat-message-container'>                
+                        <ChatMessages 
+                            chatMessages={chatMessages}    
+                        /> 
+                    </div>
+ 
+                </div> 
             )
         }
 
