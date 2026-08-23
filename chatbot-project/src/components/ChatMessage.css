@@ -15,3 +15,15 @@
     align-items: center;
     gap: 10px;
 }
+
+.chat-message-time{
+    font-size: 11px;
+    color: grey;
+    padding: 0 5px;
+    display: block;
+    margin-top: 2px;
+}
+
+.chat-message-container-user .chat-message-time{
+    text-align: right;
+}
