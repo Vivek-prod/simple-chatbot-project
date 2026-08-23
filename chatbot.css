@@ -24,6 +24,10 @@ body{
     margin-left: 10px;
 }
 
+.send-button:hover{
+    background-color: rgb(17, 92, 57);
+}
+
 .chat-input-container{
   display: flex;
   margin-bottom: 60px;
@@ -84,3 +88,4 @@ body{
 .welcome-message p{
     color: grey;
 }
+
