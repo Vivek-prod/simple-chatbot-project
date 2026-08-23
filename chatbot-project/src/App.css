@@ -1,42 +1,87 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+.chatbot-container{
+    font-family: Arial;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    
+    height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.send-button{
+    background-color: rgb(25, 135, 84);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.send-button:hover{
+    background-color: rgb(17, 92, 57);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.chat-input-container{
+  display: flex;
+  margin-bottom: 60px;
+} 
+
+.chat-input{
+    flex-grow: 1;
+    border-width: 1px;
+    font-size: 15px;
+    padding: 12px 15px;
+    border-radius: 10px;
 }
 
-.card {
-  padding: 2em;
+.chat-message-profile{
+    width: 45px;
 }
 
-.read-the-docs {
-  color: #888;
+.chat-message-container-user,.chat-message-container-robot{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
+
+.chat-message-container-user{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-message-container{
+    margin-top: 20px;
+    flex-grow: 1;
+    overflow: scroll;
+    scrollbar-width: none;
+    
+}
+
+.chat-message-contents{
+    background-color: rgb(238, 238, 238);
+    padding: 15px 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow-wrap: break-word;
+}
+
+.welcome-message{
+    text-align: center;
+    margin-top: 200px;
+}
+
+.welcome-message h2{
+    margin-bottom: 10px;
+}
+
+.welcome-message p{
+    color: grey;
+}
+
