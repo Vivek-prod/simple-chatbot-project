@@ -34,3 +34,12 @@
     margin-bottom: 0;
     overflow-wrap: break-word;
 }
+
+.clear-button{
+    background-color: rgb(238, 238, 238);
+    color: black;
+}
+
+.clear-button:hover{
+    background-color: rgb(158, 146, 146);
+}

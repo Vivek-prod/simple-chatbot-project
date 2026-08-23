@@ -54,6 +54,10 @@ export function ChatInput({chatMessages,setChatMessages,isLoading,setIsLoading})
         
     }
 
+    function resetChat() {
+        setChatMessages([])
+    }
+
     return (
         <>
             <input 
@@ -71,6 +75,16 @@ export function ChatInput({chatMessages,setChatMessages,isLoading,setIsLoading})
                 className='send-button'
                 disabled={isLoading}
             >Send</button>
+
+            {chatMessages.length>0 && (
+                <>
+                    <button 
+                        onClick={resetChat} 
+                        className='send-button clear-button'>Clear
+                    </button>
+                </>
+            )}
+            
         </>
     );
 }
