@@ -63,6 +63,7 @@
                     id: crypto.randomUUID()  
                     }
                 ]);
+                
                 setInputText('');
             }
 
@@ -88,6 +89,7 @@
 
         function ChatMessage({message,sender}) {
             return(
+                
                 <div className={`chat-message-container-${sender}`}>
                     {sender==='robot' && (
                         <img src="./images/robot.png" className='chat-message-profile' />
@@ -99,6 +101,7 @@
                 </div>
             );
         };
+
 
         function ChatMessages({chatMessages}) {
             return(
@@ -127,15 +130,24 @@
                 if(containerElen){
                     containerElen.scrollTop=containerElen.scrollHeight;
                 }
-            },[{chatMessages}]);
+            },[chatMessages]);
             
             return(
                 <div className='chatbot-container'>
 
-                    <div className='chat-message-container' ref={chatMessagesRef}>                
+                    <div className='chat-message-container' ref={chatMessagesRef}>
+
+                        {chatMessages.length===0 && (
+                            <div className='welcome-message'>
+                                <h2>Welcome To Chatbot</h2>
+                                <p>How can I help you today?</p>
+                            </div>
+                        )}
+                        
                         <ChatMessages 
                             chatMessages={chatMessages}    
-                        /> 
+                        />
+
                     </div>
 
                     <div className='chat-input-container'>

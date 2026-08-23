@@ -59,6 +59,7 @@ body{
     flex-grow: 1;
     overflow: scroll;
     scrollbar-width: none;
+    
 }
 
 .chat-message-contents{
@@ -69,4 +70,17 @@ body{
     margin-top: 0;
     margin-bottom: 0;
     overflow-wrap: break-word;
+}
+
+.welcome-message{
+    text-align: center;
+    margin-top: 200px;
+}
+
+.welcome-message h2{
+    margin-bottom: 10px;
+}
+
+.welcome-message p{
+    color: grey;
 }
